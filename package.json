@@ -1,0 +1,17 @@
+{
+  "name": "formkiq-webform-examples-jobapplication",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/formkiq/formkiq-webform-examples-jobapplication.git"
+  },
+  "bugs": {
+    "url": "https://github.com/formkiq/formkiq-webform-examples-jobapplication/issues"
+  },
+  "author": "FormKiQ Inc.",
+  "homepage": "https://formkiq.com",
+  "dependencies": {
+    "formkiq-client-sdk-javascript": "^1.0.0"
+  }
+}
