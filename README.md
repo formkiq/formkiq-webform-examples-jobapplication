@@ -10,3 +10,5 @@ You can test this FormKiQ Web Form out by running http-server:
 ```sh
 npx http-server
 ```
+
+![Screenshot of Job Application Form Example](https://raw.githubusercontent.com/formkiq/formkiq-webform-examples-jobapplication/master/screenshot.png)
