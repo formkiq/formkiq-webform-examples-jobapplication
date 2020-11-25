@@ -310,8 +310,49 @@
       let formkiqClient;
 
       window.onload = () => {
-        formkiqClient = new FormkiqClient('api-demo.tryformkiq.com');
+        /*
+        * In order to auto-wire form or submit manually to the FormKiQ Core API,
+        * you must create an instance of FormkiqClient
+        *  
+        * NOTE: you must replace "{FormkiqHttpApiUrl}" with your FormKiQ Core HTTP API URL,
+        * which can be found in your CloudFormation Outputs
+        * (see https://github.com/formkiq/formkiq-core#ssm-parameter-store)
+        */
+        formkiqClient = new FormkiqClient('{FormkiqHttpApiUrl}');
       }
+
+      /*
+      * You can submit the form manually using this function.
+      *
+      * NOTE: if you want to add an onsubmit attribute to your form, be sure to
+      * append "return false;" after your onsubmit code, to prevent the page submitting.
+      */
+      function submitForm(thisForm) {
+        // only needed for manual form submitting
+        formkiqClient.webFormsHandler.submitFormkiqForm(thisForm);
+      }
+
+      function onFormSubmitted(formName) {
+        // this event is fired when the form has been submitted
+        console.log(`${formName} has been submitted for processing.`);
+      }
+
+      function onFormCompleted(formName, response) {
+        // this event is fired when the form processing has been completed
+        console.log(`${formName} has been received and processed. Response below:`);
+        console.log(response);
+        var responseDiv = document.getElementById('response');
+        if (responseDiv) {
+          responseDiv.classList.remove('hidden');
+          window.scrollBy(0, 200);
+        }
+      }
+
+      /*** FILE INPUT FIELD FUNCTIONS ***/
+      /*
+      * NOTE: these three functions below are specific to the input fields used in this form,
+      * and are not part of the FormKiQ Core or Client SDK requirements
+      */
 
       function openFileInput(fileInputId) {
         var fileInput = document.getElementById(fileInputId);
@@ -357,19 +398,6 @@
         displaySelectedFile(fileInput, idPrefix);
       }
 
-      function onFormSubmitted(formName) {
-        console.log(`${formName} has been submitted for processing.`);
-      }
-
-      function onFormCompleted(formName, response) {
-        console.log(`${formName} has been received and processed. Response below:`);
-        console.log(response);
-        var responseDiv = document.getElementById('response');
-        if (responseDiv) {
-          responseDiv.classList.remove('hidden');
-          window.scrollBy(0, 200);
-        }
-      }
 
     </script>
   </body>
