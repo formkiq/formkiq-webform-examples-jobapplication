@@ -306,7 +306,7 @@
     </div>
     <script type="text/javascript" src="./node_modules/formkiq-client-sdk-javascript/dist/web-cjs/formkiq-client-sdk-cjs.js"></script>
     <script type="text/javascript">
-
+    
       let formkiqClient;
 
       window.onload = () => {
@@ -314,11 +314,11 @@
         * In order to auto-wire form or submit manually to the FormKiQ Core API,
         * you must create an instance of FormkiqClient
         *  
-        * NOTE: you must replace "{FormkiqHttpApiUrl}" with your FormKiQ Core HTTP API URL,
-        * which can be found in your CloudFormation Outputs
-        * (see https://github.com/formkiq/formkiq-core#ssm-parameter-store)
+        * NOTE: you must replace "<ID>" and "<REGION>" with the ID and Region in your 
+        * FormKiQ Core HTTP API URL, which can be found in your CloudFormation Outputs
+        * (see https://github.com/formkiq/formkiq-core#cloudformation-outputs)
         */
-        formkiqClient = new FormkiqClient('{FormkiqHttpApiUrl}');
+        formkiqClient = new FormkiqClient('<ID>.execute-api.<REGION>.amazonaws.com');
       }
 
       /*
