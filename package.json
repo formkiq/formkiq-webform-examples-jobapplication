@@ -12,6 +12,6 @@
   "author": "FormKiQ Inc.",
   "homepage": "https://formkiq.com",
   "dependencies": {
-    "formkiq-client-sdk-javascript": "^1.0.0"
+    "formkiq-client-sdk-javascript": "^1.0.4"
   }
 }
